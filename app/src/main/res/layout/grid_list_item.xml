@@ -28,11 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- TODO: Note that this list item will be used in a grid view which requires a
-                different layout because the list will have two columns of cards.
-                This means that the information within the card must stack the vertically
-                since there is less room in terms of width.-->
-
         <ImageView
             android:id="@+id/dog_photo"
             android:layout_width="match_parent"
@@ -40,7 +35,7 @@
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/leroy" />
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
             android:id="@+id/dog_name"
@@ -71,8 +66,8 @@
             app:layout_constraintTop_toBottomOf="@id/dog_age"
             android:paddingBottom="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            tools:text="@string/dog_hobbies" />
+            tools:text="@string/dog_hobbies"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

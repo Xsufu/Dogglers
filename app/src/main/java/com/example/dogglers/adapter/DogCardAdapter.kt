@@ -36,7 +36,6 @@ class DogCardAdapter(
     private val layout: Int
 ): RecyclerView.Adapter<DogCardAdapter.DogCardViewHolder>() {
 
-    // TODO: Initialize the data using the List found in data/DataSource
     private val dataset = DataSource.dogs
 
     /**
@@ -50,16 +49,17 @@ class DogCardAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogCardViewHolder {
-        return if (viewType == Layout.GRID) {
-            val adapterLayout = LayoutInflater.from(parent.context)
-                .inflate(R.layout.grid_list_item, parent, false)
-            DogCardViewHolder(adapterLayout)
-        } else {
+        return when (layout) {
+            Layout.GRID -> {
+                val adapterLayout = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.grid_list_item, parent, false)
+                DogCardViewHolder(adapterLayout)
+            } else -> {
             val adapterLayout = LayoutInflater.from(parent.context)
                 .inflate(R.layout.vertical_horizontal_list_item, parent, false)
             DogCardViewHolder(adapterLayout)
+            }
         }
-
     }
 
     override fun getItemCount() = dataset.size
